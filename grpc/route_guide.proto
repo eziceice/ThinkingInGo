@@ -1,0 +1,21 @@
+service RouteGuide {
+
+  rpc GetFeature(Point) returns (Feature) {}
+
+  rpc ListingFeatures(Rectangle) returns (stream Feature) {}
+}
+
+message Point {
+  required int32 latitude = 1;
+  required int32 longitude = 2;
+}
+
+message Feature {
+  required string name = 1;
+  required Point location = 2;
+}
+
+message Rectangle {
+  required Point lo = 1;
+  required Point hi = 2;
+}
