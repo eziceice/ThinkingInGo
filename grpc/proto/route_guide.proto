@@ -1,3 +1,6 @@
+syntax = "proto3";
+option go_package = "example.com/grpc/proto";
+
 service RouteGuide {
 
   rpc GetFeature(Point) returns (Feature) {}
@@ -6,16 +9,16 @@ service RouteGuide {
 }
 
 message Point {
-  required int32 latitude = 1;
-  required int32 longitude = 2;
+  int32 latitude = 1;
+  int32 longitude = 2;
 }
 
 message Feature {
-  required string name = 1;
-  required Point location = 2;
+  string name = 1;
+  Point location = 2;
 }
 
 message Rectangle {
-  required Point lo = 1;
-  required Point hi = 2;
+  Point lo = 1;
+  Point hi = 2;
 }
